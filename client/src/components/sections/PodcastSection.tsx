@@ -88,10 +88,10 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2">
-            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden p-3">
+            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden aspect-[9/16] flex flex-col relative">
               {!videoLoaded ? (
                 <div 
-                  className="aspect-[9/16] flex flex-col items-center justify-center text-white cursor-pointer"
+                  className="flex-1 flex flex-col items-center justify-center text-white cursor-pointer"
                   onClick={handleVideoClick}
                 >
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
@@ -100,7 +100,7 @@ const PodcastSection = () => {
                 </div>
               ) : (
                 <>
-                  <div className="aspect-[9/16] bg-black rounded-lg overflow-hidden">
+                  <div className="flex-1 bg-black overflow-hidden">
                     <video 
                       ref={videoElementRef}
                       className="w-full h-full object-contain"
@@ -112,13 +112,13 @@ const PodcastSection = () => {
                       Your browser does not support the video tag.
                     </video>
                   </div>
-                  <div className="mt-3 flex items-center justify-between">
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#4A7C74] py-2 px-4 flex items-center justify-between">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
                       className={`p-1 rounded-full ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259] text-white'}`}
                     >
-                      <ChevronLeft size={24} className="text-white" />
+                      <ChevronLeft size={20} className="text-white" />
                     </button>
                     <p className="text-sm font-medium text-white">
                       {currentClip + 1}/3
@@ -128,7 +128,7 @@ const PodcastSection = () => {
                       disabled={currentClip === 2}
                       className={`p-1 rounded-full ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259] text-white'}`}
                     >
-                      <ChevronRight size={24} className="text-white" />
+                      <ChevronRight size={20} className="text-white" />
                     </button>
                   </div>
                 </>
