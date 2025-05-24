@@ -80,14 +80,14 @@ const PodcastSection = () => {
   return (
     <section id="podcast" className="py-16 bg-[#F2E5D7]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center">
-          <div ref={contentRef} className="w-full text-center mb-8 max-w-2xl mx-auto animate-fade-in">
+        <div className="flex flex-col md:flex-row items-center">
+          <div ref={contentRef} className="md:w-1/2 mb-8 md:mb-0 md:pr-8 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-[#4A7C74] mb-4">Hear Our Story</h2>
             <p className="text-lg mb-6 text-[#2F2F2F]">
               Listen to our podcast where we describe what we do at PivotReady, why we do it, and who we do it for. Learn how we're helping non-traditional founders build successful tech startups with our practical guidance and proven methodologies.
             </p>
           </div>
-          <div ref={videoRef} className="bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center max-w-md">
+          <div ref={videoRef} className="md:w-1/2 bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center">
             {!videoLoaded ? (
               <div 
                 className="aspect-[9/16] w-full max-w-[360px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
