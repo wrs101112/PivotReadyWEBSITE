@@ -56,7 +56,7 @@ const PodcastSection = () => {
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-[#4A7C74] bg-opacity-90">
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
                   <p className="text-lg font-montserrat font-semibold">PivotReady Podcast Episode</p>
-                  <p className="text-sm mt-2">Click to listen to our founders explain our mission</p>
+                  <p className="text-sm mt-2">COMING SOON</p>
                 </div>
               </div>
             ) : (
