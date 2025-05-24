@@ -88,7 +88,7 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2 flex justify-center items-center">
-            <div className="p-1 bg-[#EDF6F9] rounded-lg shadow-lg animate-slide-up">
+            <div className="p-3 bg-[#EDF6F9] rounded-lg shadow-lg animate-slide-up flex justify-center items-center">
               {!videoLoaded ? (
                 <div 
                   className="aspect-[9/16] w-full max-w-[270px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
