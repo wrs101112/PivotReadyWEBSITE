@@ -80,17 +80,17 @@ const PodcastSection = () => {
   return (
     <section id="podcast" className="py-16 bg-[#F2E5D7]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center">
-          <div ref={contentRef} className="md:w-1/3 mb-8 md:mb-0 md:pr-8 animate-fade-in">
+        <div className="flex flex-col items-center">
+          <div ref={contentRef} className="w-full text-center mb-8 max-w-2xl mx-auto animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-[#4A7C74] mb-4">Hear Our Story</h2>
             <p className="text-lg mb-6 text-[#2F2F2F]">
               Listen to our podcast where we describe what we do at PivotReady, why we do it, and who we do it for. Learn how we're helping non-traditional founders build successful tech startups with our practical guidance and proven methodologies.
             </p>
           </div>
-          <div ref={videoRef} className="md:w-2/3 bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center">
+          <div ref={videoRef} className="bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center max-w-md">
             {!videoLoaded ? (
               <div 
-                className="aspect-video w-full max-w-[640px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
+                className="aspect-[9/16] w-full max-w-[360px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
                 onClick={handleVideoClick}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-[#4A7C74] bg-opacity-90">
@@ -100,8 +100,8 @@ const PodcastSection = () => {
                 </div>
               </div>
             ) : (
-              <div className="w-full max-w-[640px] overflow-hidden rounded-lg">
-                <div className="aspect-video relative bg-black rounded-lg">
+              <div className="w-full max-w-[360px] overflow-hidden rounded-lg">
+                <div className="aspect-[9/16] relative bg-black rounded-lg">
                   <video 
                     ref={videoElementRef}
                     className="w-full h-full object-contain"
