@@ -90,7 +90,7 @@ const PodcastSection = () => {
           <div ref={videoRef} className="md:w-1/2 bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center">
             {!videoLoaded ? (
               <div 
-                className="aspect-[9/16] w-full max-w-[360px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
+                className="aspect-[9/16] w-full max-w-[270px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
                 onClick={handleVideoClick}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-[#4A7C74] bg-opacity-90">
@@ -100,7 +100,7 @@ const PodcastSection = () => {
                 </div>
               </div>
             ) : (
-              <div className="w-full max-w-[360px] overflow-hidden rounded-lg">
+              <div className="w-full max-w-[270px] overflow-hidden rounded-lg">
                 <div className="aspect-[9/16] relative bg-black rounded-lg">
                   <video 
                     ref={videoElementRef}
