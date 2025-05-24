@@ -99,43 +99,43 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <>
-                  <div className="flex-grow flex flex-col">
-                    <div className="flex-1 pt-2 px-2 pb-10">
-                      <div className="w-full h-full bg-black rounded-lg overflow-hidden">
-                        <video 
-                          ref={videoElementRef}
-                          className="w-full h-full object-contain"
-                          controls
-                          autoPlay
-                          onEnded={() => currentClip < 2 && handleNextClip()}
-                        >
-                          <source src={getClipSource()} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-                    </div>
-                    <div className="h-10 mt-auto px-4 flex items-center justify-between">
-                      <button 
-                        onClick={handlePrevClip} 
-                        disabled={currentClip === 0}
-                        className={`p-1 rounded-full ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259] text-white'}`}
-                      >
-                        <ChevronLeft size={20} className="text-white" />
-                      </button>
-                      <p className="text-sm font-medium text-white">
-                        {currentClip + 1}/3
-                      </p>
-                      <button 
-                        onClick={handleNextClip} 
-                        disabled={currentClip === 2}
-                        className={`p-1 rounded-full ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259] text-white'}`}
-                      >
-                        <ChevronRight size={20} className="text-white" />
-                      </button>
-                    </div>
+                <div className="flex-1 flex flex-col justify-between p-3">
+                  {/* Video container - reduced height to make room for controls */}
+                  <div className="h-[80%] bg-black rounded-lg overflow-hidden">
+                    <video 
+                      ref={videoElementRef}
+                      className="w-full h-full object-contain"
+                      controls
+                      autoPlay
+                    >
+                      <source src={getClipSource()} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
-                </>
+                  
+                  {/* Navigation controls - below the video */}
+                  <div className="h-[15%] flex items-center justify-between mt-2">
+                    <button 
+                      onClick={handlePrevClip} 
+                      disabled={currentClip === 0}
+                      className={`p-1 rounded-full ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259]'}`}
+                      aria-label="Previous clip"
+                    >
+                      <ChevronLeft size={20} className="text-white" />
+                    </button>
+                    <p className="text-sm font-medium text-white">
+                      {currentClip + 1}/3
+                    </p>
+                    <button 
+                      onClick={handleNextClip} 
+                      disabled={currentClip === 2}
+                      className={`p-1 rounded-full ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259]'}`}
+                      aria-label="Next clip"
+                    >
+                      <ChevronRight size={20} className="text-white" />
+                    </button>
+                  </div>
+                </div>
               )}
             </div>
           </div>
