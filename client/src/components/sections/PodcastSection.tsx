@@ -88,10 +88,10 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2">
-            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden aspect-[9/16] flex flex-col">
+            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
               {!videoLoaded ? (
                 <div 
-                  className="flex-1 flex flex-col items-center justify-center text-white cursor-pointer"
+                  className="aspect-[9/16] flex flex-col items-center justify-center text-white cursor-pointer"
                   onClick={handleVideoClick}
                 >
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
@@ -99,12 +99,12 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="flex-1 flex flex-col justify-between p-3">
-                  {/* Video container - reduced height to make room for controls */}
-                  <div className="h-[80%] bg-black rounded-lg overflow-hidden">
+                <div className="flex flex-col">
+                  {/* Main video container */}
+                  <div className="aspect-video bg-black">
                     <video 
                       ref={videoElementRef}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full"
                       controls
                       autoPlay
                     >
@@ -114,7 +114,7 @@ const PodcastSection = () => {
                   </div>
                   
                   {/* Navigation controls - below the video */}
-                  <div className="h-[15%] flex items-center justify-between mt-2">
+                  <div className="py-3 px-4 flex items-center justify-between">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
