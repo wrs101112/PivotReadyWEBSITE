@@ -87,10 +87,10 @@ const PodcastSection = () => {
               Listen to our podcast where we describe what we do at PivotReady, why we do it, and who we do it for. Learn how we're helping non-traditional founders build successful tech startups with our practical guidance and proven methodologies.
             </p>
           </div>
-          <div ref={videoRef} className="md:w-2/3 bg-[#EDF6F9] p-4 rounded-lg shadow-lg animate-slide-up">
+          <div ref={videoRef} className="md:w-2/3 bg-[#EDF6F9] p-6 rounded-lg shadow-lg animate-slide-up flex justify-center items-center">
             {!videoLoaded ? (
               <div 
-                className="aspect-video relative bg-black rounded-lg overflow-hidden cursor-pointer"
+                className="aspect-video w-full max-w-[640px] relative bg-black rounded-lg overflow-hidden cursor-pointer"
                 onClick={handleVideoClick}
               >
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-[#4A7C74] bg-opacity-90">
@@ -100,35 +100,33 @@ const PodcastSection = () => {
                 </div>
               </div>
             ) : (
-              <div className="aspect-video">
-                <div className="w-full h-full rounded-lg bg-black flex flex-col items-center justify-center">
-                  <div className="relative">
-                    <video 
-                      ref={videoElementRef}
-                      className="w-full max-h-[400px] rounded-lg"
-                      controls
-                      autoPlay
-                      onEnded={() => currentClip < 2 && handleNextClip()}
+              <div className="w-full max-w-[640px] overflow-hidden rounded-lg">
+                <div className="aspect-video relative bg-black rounded-lg">
+                  <video 
+                    ref={videoElementRef}
+                    className="w-full h-full object-contain"
+                    controls
+                    autoPlay
+                    onEnded={() => currentClip < 2 && handleNextClip()}
+                  >
+                    <source src={getClipSource()} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className="absolute bottom-14 left-0 right-0 flex justify-center space-x-4 px-4">
+                    <button 
+                      onClick={handlePrevClip} 
+                      disabled={currentClip === 0}
+                      className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
                     >
-                      <source src={getClipSource()} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    <div className="absolute bottom-14 left-0 right-0 flex justify-center space-x-4 px-4">
-                      <button 
-                        onClick={handlePrevClip} 
-                        disabled={currentClip === 0}
-                        className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
-                      >
-                        <ChevronLeft size={20} className="text-[#4A7C74]" />
-                      </button>
-                      <button 
-                        onClick={handleNextClip} 
-                        disabled={currentClip === 2}
-                        className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
-                      >
-                        <ChevronRight size={20} className="text-[#4A7C74]" />
-                      </button>
-                    </div>
+                      <ChevronLeft size={20} className="text-[#4A7C74]" />
+                    </button>
+                    <button 
+                      onClick={handleNextClip} 
+                      disabled={currentClip === 2}
+                      className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
+                    >
+                      <ChevronRight size={20} className="text-[#4A7C74]" />
+                    </button>
                   </div>
                 </div>
               </div>
