@@ -102,34 +102,33 @@ const PodcastSection = () => {
             ) : (
               <div className="aspect-video">
                 <div className="w-full h-full rounded-lg bg-black flex flex-col items-center justify-center">
-                  <video 
-                    ref={videoElementRef}
-                    className="w-full h-full rounded-lg"
-                    controls
-                    autoPlay
-                    onEnded={() => currentClip < 2 && handleNextClip()}
-                  >
-                    <source src={getClipSource()} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="flex items-center justify-between w-full mt-2">
-                    <button 
-                      onClick={handlePrevClip} 
-                      disabled={currentClip === 0}
-                      className={`p-2 rounded-full ${currentClip === 0 ? 'text-gray-400' : 'text-[#4A7C74] hover:bg-[#4A7C74] hover:text-white'}`}
+                  <div className="relative">
+                    <video 
+                      ref={videoElementRef}
+                      className="w-full max-h-[400px] rounded-lg"
+                      controls
+                      autoPlay
+                      onEnded={() => currentClip < 2 && handleNextClip()}
                     >
-                      <ChevronLeft size={24} />
-                    </button>
-                    <p className="text-sm font-medium text-[#2F2F2F]">
-                      {clipTitles[currentClip]} ({currentClip + 1}/3)
-                    </p>
-                    <button 
-                      onClick={handleNextClip} 
-                      disabled={currentClip === 2}
-                      className={`p-2 rounded-full ${currentClip === 2 ? 'text-gray-400' : 'text-[#4A7C74] hover:bg-[#4A7C74] hover:text-white'}`}
-                    >
-                      <ChevronRight size={24} />
-                    </button>
+                      <source src={getClipSource()} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute bottom-14 left-0 right-0 flex justify-center space-x-4 px-4">
+                      <button 
+                        onClick={handlePrevClip} 
+                        disabled={currentClip === 0}
+                        className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
+                      >
+                        <ChevronLeft size={20} className="text-[#4A7C74]" />
+                      </button>
+                      <button 
+                        onClick={handleNextClip} 
+                        disabled={currentClip === 2}
+                        className={`p-1 rounded-full bg-white bg-opacity-70 ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-opacity-90'}`}
+                      >
+                        <ChevronRight size={20} className="text-[#4A7C74]" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
