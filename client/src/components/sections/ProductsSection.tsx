@@ -66,9 +66,10 @@ const ProductsSection = () => {
                 <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Brand Authority</span>
                 <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Proprietary Method</span>
                 <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Lead Generation System</span>
+                <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Trained AI Bot</span>
               </div>
-              <Button className="bg-[#4A7C74] hover:bg-opacity-90 text-white font-montserrat font-semibold">
-                Try BRANDi <ArrowRight className="ml-2 h-4 w-4" />
+              <Button variant="secondary" className="bg-gray-300 text-gray-600 cursor-not-allowed font-montserrat font-semibold" disabled>
+                Join Waitlist <Bell className="ml-2 h-4 w-4" />
               </Button>
             </div>
           </div>
