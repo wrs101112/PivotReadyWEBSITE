@@ -101,22 +101,21 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="bg-[#4A7C74] rounded-lg overflow-hidden" style={{maxWidth: '300px', height: '560px', padding: '12px 12px 0 12px'}}>
-                  {/* Video container without any borders */}
-                  <div className="w-full" style={{height: 'calc(100% - 40px)'}}>
-                    <video 
-                      ref={videoElementRef}
-                      className="w-full h-full"
-                      controls
-                      autoPlay
-                    >
-                      <source src={getClipSource()} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+                <div className="bg-[#4A7C74] rounded-lg overflow-hidden relative" style={{width: '270px', height: '520px'}}>
+                  {/* Video takes up full space with just tiny margins */}
+                  <video 
+                    ref={videoElementRef}
+                    className="w-full h-[calc(100%-40px)]"
+                    style={{padding: '8px 8px 0 8px'}}
+                    controls
+                    autoPlay
+                  >
+                    <source src={getClipSource()} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
-                  {/* Controls row */}
-                  <div className="h-10 flex items-center justify-between">
+                  {/* Controls row at bottom */}
+                  <div className="h-10 absolute bottom-0 left-0 right-0 flex items-center justify-between px-4">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
