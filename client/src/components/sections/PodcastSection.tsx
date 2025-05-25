@@ -93,7 +93,7 @@ const PodcastSection = () => {
             <div className="w-full max-w-[270px] mx-auto relative">
               {!videoLoaded ? (
                 <div 
-                  className="aspect-[9/16] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col items-center justify-center text-white cursor-pointer"
+                  className="aspect-[1/2] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col items-center justify-center text-white cursor-pointer"
                   onClick={handleVideoClick}
                 >
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
@@ -101,19 +101,21 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="aspect-[9/16] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
-                  <div className="relative flex-1 flex items-center justify-center">
-                    <video 
-                      ref={videoElementRef}
-                      className="absolute inset-0 w-full h-full"
-                      controls
-                      autoPlay
-                    >
-                      <source src={getClipSource()} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                <div className="aspect-[1/2] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
+                  <div className="flex-1 flex items-center justify-center p-2.5 pb-[42.5px]">
+                    <div className="w-full h-full bg-black">
+                      <video 
+                        ref={videoElementRef}
+                        className="w-full h-full"
+                        controls
+                        autoPlay
+                      >
+                        <source src={getClipSource()} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
-                  <div className="h-[40px] mt-auto flex items-center justify-between px-4">
+                  <div className="h-10 w-full absolute bottom-0 left-0 right-0 flex items-center justify-between px-4">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
