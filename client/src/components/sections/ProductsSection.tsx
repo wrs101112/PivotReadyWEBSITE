@@ -55,7 +55,7 @@ const ProductsSection = () => {
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-bold text-[#4A7C74]">BRANDi</h3>
-                <span className="bg-[#4A7C74] text-white text-xs font-bold px-3 py-1 rounded-full">Available Now</span>
+                <span className="bg-[#4A7C74] text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</span>
               </div>
               <p className="text-[#2F2F2F] mb-4">
                 Our brand identification tool that helps founders create a cohesive brand identity that resonates with their target audience.
