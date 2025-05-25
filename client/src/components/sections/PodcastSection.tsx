@@ -101,9 +101,9 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col" style={{maxWidth: '270px', height: '560px'}}>
-                  {/* Video row - takes up all space except for the controls */}
-                  <div className="flex-1 px-3 pt-3" style={{height: 'calc(100% - 40px)'}}>
+                <div className="bg-[#4A7C74] rounded-lg overflow-hidden" style={{maxWidth: '300px', height: '560px', padding: '12px 12px 0 12px'}}>
+                  {/* Video container without any borders */}
+                  <div className="w-full" style={{height: 'calc(100% - 40px)'}}>
                     <video 
                       ref={videoElementRef}
                       className="w-full h-full"
@@ -115,8 +115,8 @@ const PodcastSection = () => {
                     </video>
                   </div>
                   
-                  {/* Controls row - fixed height */}
-                  <div className="h-10 flex items-center justify-between px-4">
+                  {/* Controls row */}
+                  <div className="h-10 flex items-center justify-between">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
