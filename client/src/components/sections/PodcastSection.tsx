@@ -76,6 +76,8 @@ const PodcastSection = () => {
         return firstClipPath;
     }
   };
+  
+  // Remove onEnded auto-advance
 
   return (
     <section id="podcast" className="py-16 bg-[#F2E5D7]">
@@ -88,7 +90,10 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2">
-            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden aspect-[9/16] flex flex-col">
+            <div 
+              style={{ maxWidth: '270px', aspectRatio: '9/16' }} 
+              className="w-full mx-auto bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col relative"
+            >
               {!videoLoaded ? (
                 <div 
                   className="w-full h-full flex flex-col items-center justify-center text-white cursor-pointer"
@@ -99,29 +104,24 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="w-full h-full flex flex-col justify-between">
-                  {/* Video takes up most of the space but leaves room for controls */}
-                  <div className="flex-1 pt-2 px-2 pb-12">
-                    <div className="w-full h-full bg-black rounded-lg">
-                      <video 
-                        ref={videoElementRef}
-                        className="w-full h-full object-contain"
-                        controls
-                        autoPlay
-                      >
-                        <source src={getClipSource()} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
+                <>
+                  <div className="w-full h-[calc(100%-40px)] p-2">
+                    <video 
+                      ref={videoElementRef}
+                      className="w-full h-full object-contain bg-black rounded"
+                      controls
+                      autoPlay
+                    >
+                      <source src={getClipSource()} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                   
-                  {/* Fixed-height controls at the bottom */}
-                  <div className="h-12 absolute bottom-0 left-0 right-0 bg-[#4A7C74] flex items-center justify-between px-6">
+                  <div className="h-[40px] absolute bottom-0 left-0 right-0 flex items-center justify-between px-4">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
                       className={`p-1 rounded-full ${currentClip === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259]'}`}
-                      aria-label="Previous clip"
                     >
                       <ChevronLeft size={20} className="text-white" />
                     </button>
@@ -132,12 +132,11 @@ const PodcastSection = () => {
                       onClick={handleNextClip} 
                       disabled={currentClip === 2}
                       className={`p-1 rounded-full ${currentClip === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#3a6259]'}`}
-                      aria-label="Next clip"
                     >
                       <ChevronRight size={20} className="text-white" />
                     </button>
                   </div>
-                </div>
+                </>
               )}
             </div>
           </div>
