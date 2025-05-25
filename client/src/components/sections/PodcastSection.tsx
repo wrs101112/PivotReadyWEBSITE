@@ -90,13 +90,10 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2">
-            <div 
-              style={{ maxWidth: '270px', aspectRatio: '9/16' }} 
-              className="w-full mx-auto bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col relative"
-            >
+            <div className="w-full max-w-[270px] mx-auto relative">
               {!videoLoaded ? (
                 <div 
-                  className="w-full h-full flex flex-col items-center justify-center text-white cursor-pointer"
+                  className="aspect-[9/16] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col items-center justify-center text-white cursor-pointer"
                   onClick={handleVideoClick}
                 >
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
@@ -104,11 +101,11 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <>
-                  <div className="w-full h-[calc(100%-40px)] p-2">
+                <div className="aspect-[9/16] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
+                  <div className="relative flex-1 flex items-center justify-center">
                     <video 
                       ref={videoElementRef}
-                      className="w-full h-full object-contain bg-black rounded"
+                      className="absolute inset-0 w-full h-full"
                       controls
                       autoPlay
                     >
@@ -116,8 +113,7 @@ const PodcastSection = () => {
                       Your browser does not support the video tag.
                     </video>
                   </div>
-                  
-                  <div className="h-[40px] absolute bottom-0 left-0 right-0 flex items-center justify-between px-4">
+                  <div className="h-[40px] mt-auto flex items-center justify-between px-4">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
@@ -136,7 +132,7 @@ const PodcastSection = () => {
                       <ChevronRight size={20} className="text-white" />
                     </button>
                   </div>
-                </>
+                </div>
               )}
             </div>
           </div>
