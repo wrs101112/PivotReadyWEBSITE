@@ -101,19 +101,17 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="aspect-[1/2] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
-                  <div className="flex-1 flex items-center justify-center p-2.5 pb-[42.5px]">
-                    <div className="w-full h-full bg-black">
-                      <video 
-                        ref={videoElementRef}
-                        className="w-full h-full"
-                        controls
-                        autoPlay
-                      >
-                        <source src={getClipSource()} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
+                <div className="aspect-[1/2.1] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
+                  <div className="flex-1 px-2.5 pb-[42.5px]">
+                    <video 
+                      ref={videoElementRef}
+                      className="w-full h-full rounded-lg"
+                      controls
+                      autoPlay
+                    >
+                      <source src={getClipSource()} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                   <div className="h-10 w-full absolute bottom-0 left-0 right-0 flex items-center justify-between px-4">
                     <button 
