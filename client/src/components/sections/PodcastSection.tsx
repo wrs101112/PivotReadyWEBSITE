@@ -102,10 +102,10 @@ const PodcastSection = () => {
                 </div>
               ) : (
                 <div className="aspect-[1/2.1] bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
-                  <div className="flex-1 px-2.5 pb-[42.5px]">
+                  <div className="flex-1 p-3 pb-[43px]">
                     <video 
                       ref={videoElementRef}
-                      className="w-full h-full rounded-lg"
+                      className="w-full h-full"
                       controls
                       autoPlay
                     >
