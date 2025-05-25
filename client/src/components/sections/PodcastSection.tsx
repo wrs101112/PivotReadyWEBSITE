@@ -88,10 +88,10 @@ const PodcastSection = () => {
             </p>
           </div>
           <div ref={videoRef} className="md:w-1/2">
-            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden flex flex-col">
+            <div className="w-full max-w-[270px] mx-auto bg-[#4A7C74] rounded-lg overflow-hidden aspect-[9/16] flex flex-col">
               {!videoLoaded ? (
                 <div 
-                  className="aspect-[9/16] flex flex-col items-center justify-center text-white cursor-pointer"
+                  className="w-full h-full flex flex-col items-center justify-center text-white cursor-pointer"
                   onClick={handleVideoClick}
                 >
                   <Play className="h-16 w-16 mb-4 text-[#E27D60]" />
@@ -99,22 +99,24 @@ const PodcastSection = () => {
                   <p className="text-sm mt-2">Click to watch our series</p>
                 </div>
               ) : (
-                <div className="flex flex-col">
-                  {/* Main video container */}
-                  <div className="aspect-video bg-black">
-                    <video 
-                      ref={videoElementRef}
-                      className="w-full h-full"
-                      controls
-                      autoPlay
-                    >
-                      <source src={getClipSource()} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                <div className="w-full h-full flex flex-col justify-between">
+                  {/* Video takes up most of the space but leaves room for controls */}
+                  <div className="flex-1 pt-2 px-2 pb-12">
+                    <div className="w-full h-full bg-black rounded-lg">
+                      <video 
+                        ref={videoElementRef}
+                        className="w-full h-full object-contain"
+                        controls
+                        autoPlay
+                      >
+                        <source src={getClipSource()} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   </div>
                   
-                  {/* Navigation controls - below the video */}
-                  <div className="py-3 px-4 flex items-center justify-between">
+                  {/* Fixed-height controls at the bottom */}
+                  <div className="h-12 absolute bottom-0 left-0 right-0 bg-[#4A7C74] flex items-center justify-between px-6">
                     <button 
                       onClick={handlePrevClip} 
                       disabled={currentClip === 0}
