@@ -61,21 +61,32 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, this would send data to a backend endpoint
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message');
+      }
       
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon.",
+        description: "Thank you for reaching out. We'll get back to you soon at info@pivotready.co",
       });
       
       form.reset();
     } catch (error) {
+      console.error('Contact form error:', error);
       toast({
         variant: "destructive",
         title: "Something went wrong",
-        description: "Your message could not be sent. Please try again.",
+        description: error instanceof Error ? error.message : "Your message could not be sent. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
