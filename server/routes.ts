@@ -34,10 +34,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      res.status(200).json({ 
-        success: true,
-        message: "Thank you for your message! We'll get back to you soon at info@pivotready.co"
-      });
+      // Send HTML response to work around Vite middleware interference
+      res.status(200).send(`
+        <script>
+          window.parent.postMessage({
+            type: 'CONTACT_FORM_SUCCESS',
+            message: 'Thank you for your message! We will get back to you soon at info@pivotready.co'
+          }, '*');
+        </script>
+        <h1>Success!</h1>
+        <p>Thank you for your message! We'll get back to you soon at info@pivotready.co</p>
+      `);
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ 
