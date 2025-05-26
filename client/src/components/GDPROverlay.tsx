@@ -142,7 +142,7 @@ const GDPROverlay = () => {
             </p>
             <div className="flex items-center space-x-2 text-sm">
               <Mail className="w-4 h-4 text-[#4A7C74]" />
-              <span className="text-[#2F2F2F]">privacy@pivotready.eu</span>
+              <span className="text-[#2F2F2F]">privacy@pivotready.co</span>
             </div>
           </div>
         </div>
