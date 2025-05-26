@@ -49,18 +49,31 @@ ${formData.message}
 This email was sent from the PivotReady.co contact form.
     `;
 
-    await mailService.send({
+    // Try to use a verified sender email - you may need to verify this in SendGrid
+    const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'test@example.com';
+    
+    console.log('Attempting to send email with SendGrid...');
+    
+    const emailData = {
       to: 'info@pivotready.co',
-      from: 'noreply@pivotready.co', // This should be a verified sender in SendGrid
+      from: fromEmail,
       replyTo: formData.email,
       subject: `Contact Form: ${formData.subject}`,
       text: emailText,
       html: emailHtml,
-    });
+    };
+    
+    console.log('Email data:', { ...emailData, html: '[HTML CONTENT]', text: '[TEXT CONTENT]' });
+    
+    await mailService.send(emailData);
 
     return true;
   } catch (error) {
-    console.error('SendGrid email error:', error);
+    console.error('SendGrid email error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      response: error && typeof error === 'object' && 'response' in error ? error.response : null,
+      stack: error instanceof Error ? error.stack : null
+    });
     return false;
   }
 }
