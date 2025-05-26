@@ -91,6 +91,9 @@ This email was automatically sent from the PivotReady.co contact form`,
       }
     };
 
+    console.log('Making Brevo API call...');
+    console.log('Email data being sent:', JSON.stringify(emailData, null, 2));
+    
     const response = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -101,14 +104,19 @@ This email was automatically sent from the PivotReady.co contact form`,
       body: JSON.stringify(emailData)
     });
 
+    console.log('Brevo API response status:', response.status);
+    console.log('Brevo API response headers:', Object.fromEntries(response.headers.entries()));
+
     if (!response.ok) {
       const errorData = await response.text();
-      console.error('Brevo API error:', response.status, errorData);
+      console.error('Brevo API error - Status:', response.status);
+      console.error('Brevo API error - Response:', errorData);
       return false;
     }
 
     const result = await response.json();
-    console.log('Email sent successfully via Brevo:', result);
+    console.log('Email sent successfully via Brevo!');
+    console.log('Brevo response:', result);
     return true;
 
   } catch (error) {
