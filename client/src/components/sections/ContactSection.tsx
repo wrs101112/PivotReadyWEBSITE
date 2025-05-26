@@ -71,7 +71,20 @@ const ContactSection = () => {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      console.log('Response status:', response.status);
+      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+      
+      const responseText = await response.text();
+      console.log('Raw response:', responseText);
+      
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (parseError) {
+        console.error('JSON parse error:', parseError);
+        console.error('Response text that failed to parse:', responseText);
+        throw new Error('Server returned invalid JSON response');
+      }
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || 'Failed to send message');
