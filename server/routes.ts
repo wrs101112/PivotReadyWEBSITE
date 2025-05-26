@@ -5,7 +5,7 @@ import { sendContactEmail } from "./email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Brevo-powered contact form endpoint (bypasses Netlify form processing)
+  // HIGH PRIORITY: Register API route FIRST to avoid Vite catchall interference
   app.post('/api/brevo-contact', async (req, res) => {
     // Force JSON response and prevent middleware interference
     res.set({
