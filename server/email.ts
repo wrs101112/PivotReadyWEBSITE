@@ -15,6 +15,10 @@ interface ContactFormData {
 
 export async function sendContactEmail(formData: ContactFormData): Promise<boolean> {
   try {
+    console.log('Starting email send process...');
+    console.log('API Key exists:', !!process.env.SENDGRID_API_KEY);
+    console.log('SendGrid module type:', typeof sgMail);
+    
     const msg = {
       to: 'info@pivotready.co',
       from: 'info@pivotready.co', // Verified sender
@@ -48,11 +52,17 @@ This email was sent from the PivotReady.co contact form.`,
       </div>`,
     };
 
-    await sgMail.send(msg);
-    console.log('Email sent successfully');
+    console.log('Attempting to send email...');
+    const result = await sgMail.send(msg);
+    console.log('Email sent successfully, response:', result);
     return true;
   } catch (error) {
-    console.error('SendGrid error:', error);
+    console.error('SendGrid error details:', {
+      message: error instanceof Error ? error.message : 'Unknown error',
+      code: error && typeof error === 'object' && 'code' in error ? error.code : null,
+      response: error && typeof error === 'object' && 'response' in error ? error.response : null,
+      stack: error instanceof Error ? error.stack : null
+    });
     return false;
   }
 }
