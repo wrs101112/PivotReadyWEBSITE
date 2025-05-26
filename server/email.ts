@@ -17,7 +17,7 @@ export async function sendContactEmail(formData: ContactFormData): Promise<boole
   try {
     const msg = {
       to: 'info@pivotready.co',
-      from: 'test@example.com', // Change to your verified sender
+      from: 'info@pivotready.co', // Verified sender
       subject: `Contact Form: ${formData.subject}`,
       text: `New Contact Form Submission
 
