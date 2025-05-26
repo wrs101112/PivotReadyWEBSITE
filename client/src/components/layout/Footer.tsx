@@ -29,16 +29,23 @@ const Footer = () => {
               </a>
             </div>
             <div className="flex flex-col items-center md:items-end space-y-1">
-              <button 
-                onClick={() => {
-                  // Clear existing cookie preferences to show banner again
-                  localStorage.removeItem('pivotready-cookie-consent');
-                  window.location.reload();
-                }}
-                className="text-sm opacity-80 hover:opacity-100 underline transition-opacity"
-              >
-                Cookie Preferences
-              </button>
+              <div className="flex space-x-4 text-sm opacity-80">
+                <Link href="/legal">
+                  <span className="hover:opacity-100 underline transition-opacity cursor-pointer">
+                    Legal & Privacy
+                  </span>
+                </Link>
+                <button 
+                  onClick={() => {
+                    // Clear existing cookie preferences to show banner again
+                    localStorage.removeItem('pivotready-cookie-consent');
+                    window.location.reload();
+                  }}
+                  className="hover:opacity-100 underline transition-opacity"
+                >
+                  Cookie Preferences
+                </button>
+              </div>
               <p className="text-sm opacity-80">&copy; {new Date().getFullYear()} PivotReady. All rights reserved.</p>
             </div>
           </div>
