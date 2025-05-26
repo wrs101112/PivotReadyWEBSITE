@@ -27,7 +27,7 @@ const GDPROverlay = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
             <div className="bg-white p-3 rounded-lg border border-gray-200">
               <h5 className="font-medium text-[#4A7C74] mb-1">Data Controller</h5>
-              <p className="text-sm text-[#2F2F2F]">PivotReady.eu</p>
+              <p className="text-sm text-[#2F2F2F]">PivotReady.co</p>
             </div>
             <div className="bg-white p-3 rounded-lg border border-gray-200">
               <h5 className="font-medium text-[#4A7C74] mb-1">Legal Basis</h5>
@@ -156,8 +156,8 @@ const GDPROverlay = () => {
           <div className="bg-[#EDF6F9] p-4 rounded-lg">
             <h4 className="font-semibold text-[#4A7C74] mb-3">Data Protection Officer</h4>
             <div className="space-y-2 text-sm text-[#2F2F2F]">
-              <p><strong>Organization:</strong> PivotReady.eu</p>
-              <p><strong>Email:</strong> privacy@pivotready.eu</p>
+              <p><strong>Organization:</strong> PivotReady.co</p>
+              <p><strong>Email:</strong> privacy@pivotready.co</p>
               <p><strong>Response Time:</strong> Within 30 days</p>
             </div>
           </div>
@@ -179,7 +179,7 @@ const GDPROverlay = () => {
           </div>
           <div className="text-center pt-4">
             <Button
-              onClick={() => window.open('mailto:privacy@pivotready.eu?subject=GDPR Inquiry', '_blank')}
+              onClick={() => window.open('mailto:privacy@pivotready.co?subject=GDPR Inquiry', '_blank')}
               className="bg-[#4A7C74] hover:bg-opacity-90 text-white"
             >
               <Mail className="w-4 h-4 mr-2" />
