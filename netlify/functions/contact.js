@@ -1,7 +1,7 @@
 // Netlify serverless function to handle contact form submissions
-import sgMail from '@sendgrid/mail';
+const sgMail = require('@sendgrid/mail');
 
-export async function handler(event, context) {
+exports.handler = async (event, context) => {
   try {
     // Basic CORS headers
     const headers = {
