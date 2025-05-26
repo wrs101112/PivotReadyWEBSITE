@@ -195,10 +195,10 @@ const ContactSection = () => {
             <p className="text-[#2F2F2F] mb-4">Prefer to reach out directly?</p>
             <div className="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-6">
               <a 
-                href="mailto:info@pivotready.eu" 
+                href="mailto:info@pivotready.co" 
                 className="flex items-center justify-center text-[#4A7C74] hover:text-[#E27D60] transition-colors"
               >
-                <Mail className="mr-2 h-5 w-5" /> info@pivotready.eu
+                <Mail className="mr-2 h-5 w-5" /> info@pivotready.co
               </a>
               <a 
                 href="https://wa.me/message" 

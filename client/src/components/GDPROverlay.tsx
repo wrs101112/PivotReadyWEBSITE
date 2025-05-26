@@ -260,7 +260,7 @@ const GDPROverlay = () => {
               <p className="text-xs text-gray-600 text-center">
                 Last updated: {new Date().toLocaleDateString()} | 
                 This information is provided in compliance with GDPR requirements | 
-                For questions, contact privacy@pivotready.eu
+                For questions, contact privacy@pivotready.co
               </p>
             </div>
           </div>
