@@ -57,22 +57,28 @@ const ContactSection = () => {
     };
   }, []);
 
+  // Note: This form now uses Netlify Forms for email handling
+  // If moving to a different hosting provider, implement a new email solution
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/contact', {
+      // Submit to Netlify Forms using standard form submission
+      const formData = new FormData();
+      formData.append('form-name', 'contact');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('subject', data.subject);
+      formData.append('message', data.message);
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
       });
 
-      const result = await response.json();
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Failed to send message');
+      if (!response.ok) {
+        throw new Error('Failed to send message');
       }
       
       toast({
@@ -106,7 +112,15 @@ const ContactSection = () => {
           
           <div ref={formRef} className="bg-white p-8 rounded-lg shadow-xl animate-slide-up">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                onSubmit={form.handleSubmit(onSubmit)} 
+                className="space-y-6"
+              >
+                {/* Hidden field for Netlify Forms */}
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
