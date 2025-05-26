@@ -57,35 +57,29 @@ const ContactSection = () => {
     };
   }, []);
 
-  // Note: This form now uses Netlify Forms for email handling
-  // If moving to a different hosting provider, implement a new email solution
+  // Note: This form now uses Brevo for GDPR-compliant email handling
+  // Brevo provides auto-responders and tracking capabilities for future use
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
     try {
-      // Encode form data for Netlify Forms
-      const encode = (data: Record<string, string>) => {
-        return Object.keys(data)
-          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-          .join("&");
-      };
-
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...data
-        })
+      const response = await fetch('/api/brevo-contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to send message');
       }
       
       toast({
         title: "Message Sent!",
-        description: "Thank you for reaching out. We'll get back to you soon at info@pivotready.co",
+        description: result.message || "Thank you for reaching out. We'll get back to you soon at info@pivotready.co",
       });
       
       form.reset();
@@ -115,14 +109,9 @@ const ContactSection = () => {
           <div ref={formRef} className="bg-white p-8 rounded-lg shadow-xl animate-slide-up">
             <Form {...form}>
               <form 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
                 onSubmit={form.handleSubmit(onSubmit)} 
                 className="space-y-6"
               >
-                {/* Hidden field for Netlify Forms */}
-                <input type="hidden" name="form-name" value="contact" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
