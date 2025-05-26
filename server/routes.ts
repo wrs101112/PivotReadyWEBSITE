@@ -5,16 +5,17 @@ import { sendContactEmail } from "./email";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // HIGH PRIORITY: Register API route FIRST to avoid Vite catchall interference
+  // CRITICAL: Register API route FIRST and force response termination
   app.post('/api/brevo-contact', async (req, res) => {
-    // Force JSON response and prevent middleware interference
-    res.set({
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache'
-    });
+    console.log('🚀 API Route Hit - Forcing response termination');
+    
+    // Immediately set headers and prevent any middleware interference
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('X-Powered-By', 'Express-Direct');
+    
     try {
-      console.log('Brevo contact form endpoint hit');
-      console.log('Request body:', req.body);
+      console.log('📝 Request body received:', req.body);
       
       const contactSchema = z.object({
         name: z.string().min(2),
@@ -24,40 +25,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       const validatedData = contactSchema.parse(req.body);
-      console.log('Data validation successful:', validatedData);
+      console.log('✅ Validation successful:', validatedData);
       
-      console.log('About to call sendContactEmail with data:', validatedData);
+      console.log('📧 Calling Brevo email function...');
       const emailSent = await sendContactEmail(validatedData);
-      console.log('sendContactEmail returned:', emailSent);
-      console.log('Email sending process completed');
+      console.log('📧 Email function returned:', emailSent);
       
       if (!emailSent) {
-        console.log('Email sending failed, returning error response');
-        return res.status(500).json({ 
+        console.log('❌ Email failed - sending error response');
+        const errorResponse = JSON.stringify({ 
           success: false, 
           message: 'Failed to send email. Please try again later.' 
         });
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(errorResponse);
+        return;
       }
       
-      res.set('Content-Type', 'application/json');
-      res.status(200).json({ 
+      console.log('✅ Email sent - sending success response');
+      const successResponse = JSON.stringify({ 
         success: true,
         message: "Thank you for your message! We'll get back to you soon at info@pivotready.co"
       });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(successResponse);
+      return;
+      
     } catch (error) {
+      console.error('💥 Route error:', error);
+      
       if (error instanceof z.ZodError) {
-        return res.status(400).json({ 
+        const validationResponse = JSON.stringify({ 
           success: false,
           message: "Invalid form data",
           errors: error.errors 
         });
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(validationResponse);
+        return;
       }
       
-      console.error("Brevo contact form error:", error);
-      res.status(500).json({ 
+      const errorResponse = JSON.stringify({ 
         success: false,
         message: "Failed to process contact form submission" 
       });
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(errorResponse);
+      return;
     }
   });
 
