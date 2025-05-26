@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CookieConsent from "@/components/CookieConsent";
+import GDPROverlay from "@/components/GDPROverlay";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Toaster />
         <Router />
         <CookieConsent />
+        <GDPROverlay />
       </TooltipProvider>
     </QueryClientProvider>
   );
