@@ -21,9 +21,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = contactSchema.parse(req.body);
       console.log('Data validation successful:', validatedData);
       
-      console.log('Sending email via Brevo...');
+      console.log('About to call sendContactEmail with data:', validatedData);
       const emailSent = await sendContactEmail(validatedData);
-      console.log('Brevo email result:', emailSent);
+      console.log('sendContactEmail returned:', emailSent);
+      console.log('Email sending process completed');
       
       if (!emailSent) {
         console.log('Email sending failed, returning error response');
