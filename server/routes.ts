@@ -7,6 +7,11 @@ import { z } from "zod";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Brevo-powered contact form endpoint (bypasses Netlify form processing)
   app.post('/api/brevo-contact', async (req, res) => {
+    // Force JSON response and prevent middleware interference
+    res.set({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
     try {
       console.log('Brevo contact form endpoint hit');
       console.log('Request body:', req.body);
@@ -34,17 +39,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Send HTML response to work around Vite middleware interference
-      res.status(200).send(`
-        <script>
-          window.parent.postMessage({
-            type: 'CONTACT_FORM_SUCCESS',
-            message: 'Thank you for your message! We will get back to you soon at info@pivotready.co'
-          }, '*');
-        </script>
-        <h1>Success!</h1>
-        <p>Thank you for your message! We'll get back to you soon at info@pivotready.co</p>
-      `);
+      res.set('Content-Type', 'application/json');
+      res.status(200).json({ 
+        success: true,
+        message: "Thank you for your message! We'll get back to you soon at info@pivotready.co"
+      });
     } catch (error) {
       if (error instanceof z.ZodError) {
         return res.status(400).json({ 

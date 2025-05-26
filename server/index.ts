@@ -49,6 +49,48 @@ app.use((req, res, next) => {
   next();
 });
 
+// Register API routes BEFORE any other middleware to prevent interference
+app.post('/api/brevo-contact', async (req, res) => {
+  try {
+    console.log('Direct route hit - bypassing all middleware');
+    res.set('Content-Type', 'application/json');
+    
+    const { sendContactEmail } = await import("./email");
+    const { z } = await import("zod");
+    
+    const contactSchema = z.object({
+      name: z.string().min(2),
+      email: z.string().email(),
+      subject: z.string().min(1),
+      message: z.string().min(10),
+    });
+
+    const validatedData = contactSchema.parse(req.body);
+    console.log('Direct route - validation successful');
+    
+    const emailSent = await sendContactEmail(validatedData);
+    console.log('Direct route - email result:', emailSent);
+    
+    if (!emailSent) {
+      return res.status(500).json({ 
+        success: false, 
+        message: 'Failed to send email. Please try again later.' 
+      });
+    }
+    
+    return res.status(200).json({ 
+      success: true,
+      message: "Thank you for your message! We'll get back to you soon at info@pivotready.co"
+    });
+  } catch (error) {
+    console.error("Direct route error:", error);
+    return res.status(500).json({ 
+      success: false,
+      message: "Failed to process contact form submission" 
+    });
+  }
+});
+
 (async () => {
   const server = await registerRoutes(app);
 
