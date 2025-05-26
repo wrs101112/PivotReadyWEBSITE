@@ -28,7 +28,19 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            <p className="text-sm opacity-80">&copy; {new Date().getFullYear()} PivotReady. All rights reserved.</p>
+            <div className="flex flex-col items-center md:items-end space-y-1">
+              <button 
+                onClick={() => {
+                  // Clear existing cookie preferences to show banner again
+                  localStorage.removeItem('pivotready-cookie-consent');
+                  window.location.reload();
+                }}
+                className="text-sm opacity-80 hover:opacity-100 underline transition-opacity"
+              >
+                Cookie Preferences
+              </button>
+              <p className="text-sm opacity-80">&copy; {new Date().getFullYear()} PivotReady. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </div>
