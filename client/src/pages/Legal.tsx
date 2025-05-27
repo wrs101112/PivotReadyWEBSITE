@@ -316,7 +316,7 @@ const Legal = () => {
             <h4 className="font-medium text-[#4A7C74] mb-2">Contact Information</h4>
             <p className="text-sm text-[#2F2F2F]">
               For any questions or concerns about this Privacy Policy or data protection, please contact us at{' '}
-              <a href="mailto:privacy@pivotready.co" className="text-[#4A7C74] hover:underline">
+              <a href="mailto:privacy@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                 privacy@pivotready.co
               </a>
             </p>
@@ -424,7 +424,7 @@ const Legal = () => {
           <div className="bg-gray-50 p-4 rounded-lg mt-8">
             <p className="text-sm text-[#2F2F2F]">
               For questions about our cookie policy, please contact us at{' '}
-              <a href="mailto:privacy@pivotready.co" className="text-[#4A7C74] hover:underline">
+              <a href="mailto:privacy@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                 privacy@pivotready.co
               </a>
             </p>
@@ -597,7 +597,7 @@ const Legal = () => {
               <p className="text-sm text-gray-600">
                 Last updated: {new Date().toLocaleDateString()} | 
                 Questions? Contact us at{' '}
-                <a href="mailto:privacy@pivotready.co" className="text-[#4A7C74] hover:underline">
+                <a href="mailto:privacy@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                   privacy@pivotready.co
                 </a>
               </p>
