@@ -178,7 +178,7 @@ const Legal = () => {
           <div className="bg-gray-50 p-4 rounded-lg mt-8">
             <p className="text-sm text-[#2F2F2F]">
               For any questions or concerns, please contact us at{' '}
-              <a href="mailto:support@pivotready.co" className="text-[#4A7C74] hover:underline">
+              <a href="mailto:support@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                 support@pivotready.co
               </a>
             </p>
@@ -268,7 +268,7 @@ const Legal = () => {
             </ul>
             <p className="text-[#2F2F2F] mt-3">
               For any requests, contact us at{' '}
-              <a href="mailto:privacy@pivotready.co" className="text-[#4A7C74] hover:underline">
+              <a href="mailto:privacy@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                 privacy@pivotready.co
               </a>
             </p>
@@ -298,7 +298,7 @@ const Legal = () => {
               While PivotReady services are open to users of all ages, we do not knowingly collect data from 
               children under the age of 13 in the U.S. or 16 in the EU. If you believe a child has provided us 
               with personal data, please contact us at{' '}
-              <a href="mailto:privacy@pivotready.co" className="text-[#4A7C74] hover:underline">
+              <a href="mailto:privacy@pivotready.co" target="_blank" rel="noopener noreferrer" className="text-[#4A7C74] hover:underline">
                 privacy@pivotready.co
               </a>
             </p>
