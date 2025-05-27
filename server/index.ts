@@ -5,7 +5,7 @@ import { setupVite, serveStatic, log } from "./vite";
 const app = express();
 
 // CRITICAL: Register contact route BEFORE any middleware to prevent interference
-app.post('/contact-submit', express.json(), async (req, res) => {
+app.post('/api/brevo-contact', express.json(), async (req, res) => {
   console.log('🚀 CONTACT FORM SUBMISSION RECEIVED');
   console.log('📝 Form data:', req.body);
   

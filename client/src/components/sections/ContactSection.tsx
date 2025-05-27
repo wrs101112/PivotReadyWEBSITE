@@ -63,7 +63,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/contact-submit', {
+      const response = await fetch('/api/brevo-contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
