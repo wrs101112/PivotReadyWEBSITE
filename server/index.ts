@@ -4,58 +4,6 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
-// CRITICAL: Register contact route BEFORE any middleware to prevent interference
-app.post('/api/brevo-contact', express.json(), async (req, res) => {
-  console.log('🚀 CONTACT FORM SUBMISSION RECEIVED');
-  console.log('📝 Form data:', req.body);
-  
-  try {
-    const { sendContactEmail } = await import("./email");
-    const { z } = await import("zod");
-    
-    const contactSchema = z.object({
-      name: z.string().min(2),
-      email: z.string().email(),
-      subject: z.string().min(1),
-      message: z.string().min(10),
-    });
-
-    const validatedData = contactSchema.parse(req.body);
-    console.log('✅ Data validated successfully');
-    
-    console.log('📧 Sending email via Brevo...');
-    const emailSent = await sendContactEmail(validatedData);
-    console.log('📧 Email result:', emailSent);
-    
-    if (!emailSent) {
-      console.log('❌ Email failed');
-      res.writeHead(500, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ 
-        success: false, 
-        message: 'Failed to send email. Please try again later.' 
-      }));
-      return;
-    }
-    
-    console.log('✅ Email sent successfully');
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ 
-      success: true, 
-      message: "Thank you for your message! We'll get back to you soon at info@pivotready.co" 
-    }));
-    return;
-    
-  } catch (error) {
-    console.error('💥 Contact form error:', error);
-    res.writeHead(500, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ 
-      success: false, 
-      message: "Failed to process contact form submission" 
-    }));
-    return;
-  }
-});
-
 // Add CORS headers for development
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
