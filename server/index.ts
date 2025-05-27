@@ -4,6 +4,17 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// CRITICAL: Register contact route BEFORE any middleware to prevent interference
+app.post('/api/brevo-contact', express.json(), async (req, res) => {
+  console.log('🚀 EARLIEST ROUTE - Contact form hit');
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ 
+    success: true, 
+    message: "Contact form received! (Early route test)" 
+  }));
+  return;
+});
+
 // Add CORS headers for development
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
