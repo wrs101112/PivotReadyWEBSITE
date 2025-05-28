@@ -10,6 +10,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     console.log('🚀 API Route Hit - Contact form submission received');
     console.log('📝 Request body received:', req.body);
     
+    // Set JSON content type explicitly
+    res.setHeader('Content-Type', 'application/json');
+    
     try {
       const contactSchema = z.object({
         name: z.string().min(2),
@@ -27,14 +30,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       if (!emailSent) {
         console.log('❌ Email failed - sending error response');
-        return res.status(500).json({ 
+        return res.json({ 
           success: false, 
           message: 'Failed to send email. Please try again later.' 
         });
       }
       
       console.log('✅ Email sent - sending success response');
-      return res.status(200).json({ 
+      return res.json({ 
         success: true,
         message: "Thank you for your message! We'll get back to you soon at info@pivotready.co"
       });
