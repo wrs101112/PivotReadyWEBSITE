@@ -61,6 +61,13 @@ const Legal = () => {
               <li>Discount codes may apply to certain purchases</li>
               <li><strong>Refunds:</strong> PivotReady does not offer refunds. You may cancel your subscription, but cancellation takes effect at the end of the current billing cycle</li>
             </ul>
+            <div className="bg-[#EDF6F9] p-4 rounded-lg border-l-4 border-[#4A7C74] mt-4">
+              <h4 className="font-medium text-[#4A7C74] mb-2">Merchant of Record</h4>
+              <p className="text-sm text-[#2F2F2F]">
+                Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. 
+                Paddle provides all customer service inquiries and handles returns.
+              </p>
+            </div>
           </section>
 
           <section className="space-y-4">
