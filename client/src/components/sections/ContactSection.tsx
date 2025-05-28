@@ -63,7 +63,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/brevo-contact', {
+      const response = await fetch('/.netlify/functions/brevo-contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
