@@ -210,7 +210,7 @@ const Legal = () => {
 
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">1. Data We Collect</h3>
-            <p className="text-[#2F2F2F] mb-3">We collect the following personal data from users:</p>
+            <p className="text-[#2F2F2F] mb-3">PivotReady collects the following personal data from users:</p>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
               <li><strong>Personal Information:</strong> Name, email address, and physical address</li>
               <li><strong>Payment Information:</strong> Collected and processed by our third-party payment processor (Paddle)</li>
@@ -218,7 +218,7 @@ const Legal = () => {
               <li><strong>Uploaded Data:</strong> Files and content directly uploaded by users for service delivery</li>
             </ul>
             <p className="text-[#2F2F2F] mt-3">
-              We do not process or collect sensitive data such as health information or ethnic details.
+              PivotReady does not process or collect sensitive data such as health information or ethnic details.
             </p>
           </section>
 
@@ -235,9 +235,9 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">3. Purpose of Data Collection</h3>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
-              <li>To provide our services, including ChatBOT functionality and document creation</li>
-              <li>To process payments and manage subscriptions</li>
-              <li>To improve and optimize our website and tools</li>
+              <li>To provide PivotReady's services, including ChatBOT functionality and document creation</li>
+              <li>To process payments and manage PivotReady subscriptions</li>
+              <li>To improve and optimize PivotReady's website and tools</li>
               <li>For marketing purposes (with your consent)</li>
               <li>To comply with legal obligations</li>
             </ul>
@@ -253,13 +253,13 @@ const Legal = () => {
 
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">4. Data Sharing</h3>
-            <p className="text-[#2F2F2F] mb-3">We share data with the following third parties:</p>
+            <p className="text-[#2F2F2F] mb-3">PivotReady shares data with the following third parties:</p>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
               <li><strong>Paddle:</strong> For payment processing</li>
-              <li><strong>OpenAI and Anthropic:</strong> To power our ChatBOT features and training</li>
+              <li><strong>OpenAI and Anthropic:</strong> To power PivotReady's ChatBOT features and training</li>
             </ul>
             <p className="text-[#2F2F2F] mt-3">
-              We do not transfer personal data internationally or share it for external purposes. 
+              PivotReady does not transfer personal data internationally or share it for external purposes. 
               However, users may access their own data from any location.
             </p>
           </section>
