@@ -22,7 +22,7 @@ const Legal = () => {
             <h3 className="text-xl font-semibold text-[#4A7C74]">1. Acceptance of Terms</h3>
             <p className="text-[#2F2F2F]">
               By creating an account and using PivotReady's services, you agree to these Terms and Conditions. 
-              If you do not agree, please refrain from using our website or services.
+              If you do not agree, please refrain from using our website or services. These terms constitute a legal agreement between you and PivotReady.
             </p>
           </section>
 
@@ -64,8 +64,8 @@ const Legal = () => {
             <div className="bg-[#EDF6F9] p-4 rounded-lg border-l-4 border-[#4A7C74] mt-4">
               <h4 className="font-medium text-[#4A7C74] mb-2">Merchant of Record</h4>
               <p className="text-sm text-[#2F2F2F]">
-                Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. 
-                Paddle provides all customer service inquiries and handles returns.
+                PivotReady's order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all PivotReady orders. 
+                Paddle provides all customer service inquiries and handles returns for PivotReady services.
               </p>
             </div>
           </section>
@@ -122,8 +122,8 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">8. Intellectual Property</h3>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
-              <li>All content, logos, and trademarks on the website remain the property of PivotReady unless otherwise stated</li>
-              <li>Users may not copy, modify, distribute, or reproduce any part of the website or services without prior written consent</li>
+              <li>All content, logos, and trademarks on the PivotReady website remain the property of PivotReady unless otherwise stated</li>
+              <li>Users may not copy, modify, distribute, or reproduce any part of PivotReady's website or services without prior written consent from PivotReady</li>
             </ul>
           </section>
 
@@ -159,8 +159,8 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">12. Third-Party Services</h3>
             <p className="text-[#2F2F2F]">
-              PivotReady uses integrations with OpenAI and Anthropic to provide certain features of our services. 
-              While we strive to maintain seamless integrations, we are not responsible for outages, disruptions, 
+              PivotReady uses integrations with OpenAI and Anthropic to provide certain features of PivotReady's services. 
+              While PivotReady strives to maintain seamless integrations, PivotReady is not responsible for outages, disruptions, 
               or limitations caused by these third-party providers.
             </p>
           </section>
@@ -168,8 +168,8 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">13. Governing Law & Dispute Resolution</h3>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
-              <li>These Terms and Conditions are governed by the laws of the State of Texas, USA</li>
-              <li>Disputes will be resolved through arbitration, mediation, or local courts in the State of Texas, USA</li>
+              <li>These Terms and Conditions between you and PivotReady are governed by the laws of the State of Texas, USA</li>
+              <li>Disputes between you and PivotReady will be resolved through arbitration, mediation, or local courts in the State of Texas, USA</li>
             </ul>
           </section>
 
@@ -177,7 +177,7 @@ const Legal = () => {
             <h3 className="text-xl font-semibold text-[#4A7C74]">14. Amendments</h3>
             <p className="text-[#2F2F2F]">
               PivotReady reserves the right to update or modify these Terms and Conditions at any time. 
-              Changes will be effective upon posting on this page. Continued use of the services constitutes 
+              Changes will be effective upon posting on this page. Continued use of PivotReady's services constitutes 
               your acceptance of the updated terms.
             </p>
           </section>
