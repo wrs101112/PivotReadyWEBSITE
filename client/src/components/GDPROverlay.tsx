@@ -13,7 +13,7 @@ const GDPROverlay = () => {
       content: (
         <div className="space-y-4">
           <p className="text-[#2F2F2F] leading-relaxed">
-            At PivotReady, we are committed to protecting your personal data and ensuring full compliance 
+            At TEN ELEVEN TWELVE LLC, we are committed to protecting your personal data and ensuring full compliance 
             with the General Data Protection Regulation (GDPR). This overlay provides transparent information 
             about how we collect, process, and protect your data.
           </p>
@@ -27,7 +27,7 @@ const GDPROverlay = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
             <div className="bg-white p-3 rounded-lg border border-gray-200">
               <h5 className="font-medium text-[#4A7C74] mb-1">Data Controller</h5>
-              <p className="text-sm text-[#2F2F2F]">PivotReady.co</p>
+              <p className="text-sm text-[#2F2F2F]">Ten Eleven Twelve LLC</p>
             </div>
             <div className="bg-white p-3 rounded-lg border border-gray-200">
               <h5 className="font-medium text-[#4A7C74] mb-1">Legal Basis</h5>
