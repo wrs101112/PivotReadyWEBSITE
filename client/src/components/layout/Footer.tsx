@@ -31,7 +31,12 @@ const Footer = () => {
             <div className="flex flex-col items-center md:items-end space-y-1">
               <div className="flex space-x-4 text-sm opacity-80">
                 <Link href="/legal">
-                  <span className="hover:opacity-100 underline transition-opacity cursor-pointer">
+                  <span 
+                    className="hover:opacity-100 underline transition-opacity cursor-pointer"
+                    onClick={() => {
+                      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                    }}
+                  >
                     Legal & Privacy
                   </span>
                 </Link>
