@@ -168,16 +168,16 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">13. Governing Law & Dispute Resolution</h3>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
-              <li>These Terms and Conditions between you and PivotReady are governed by the laws of the State of Texas, USA</li>
-              <li>Disputes between you and PivotReady will be resolved through arbitration, mediation, or local courts in the State of Texas, USA</li>
+              <li>These Terms and Conditions between you and TEN ELEVEN TWELVE LLC are governed by the laws of the State of Texas, USA</li>
+              <li>Disputes between you and TEN ELEVEN TWELVE LLC will be resolved through arbitration, mediation, or local courts in the State of Texas, USA</li>
             </ul>
           </section>
 
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">14. Amendments</h3>
             <p className="text-[#2F2F2F]">
-              PivotReady reserves the right to update or modify these Terms and Conditions at any time. 
-              Changes will be effective upon posting on this page. Continued use of PivotReady's services constitutes 
+              TEN ELEVEN TWELVE LLC reserves the right to update or modify these Terms and Conditions at any time. 
+              Changes will be effective upon posting on this page. Continued use of TEN ELEVEN TWELVE LLC's services constitutes 
               your acceptance of the updated terms.
             </p>
           </section>
@@ -203,14 +203,14 @@ const Legal = () => {
               <strong>Effective Date:</strong> May 2025 | <strong>Last Updated:</strong> May 2025
             </p>
             <p className="text-sm text-[#2F2F2F] mt-2">
-              PivotReady is committed to protecting your privacy. This Privacy Policy explains how we collect, 
+              TEN ELEVEN TWELVE LLC is committed to protecting your privacy. This Privacy Policy explains how we collect, 
               use, and process your personal data in compliance with U.S. laws and GDPR.
             </p>
           </div>
 
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">1. Data We Collect</h3>
-            <p className="text-[#2F2F2F] mb-3">PivotReady collects the following personal data from users:</p>
+            <p className="text-[#2F2F2F] mb-3">TEN ELEVEN TWELVE LLC collects the following personal data from users:</p>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
               <li><strong>Personal Information:</strong> Name, email address, and physical address</li>
               <li><strong>Payment Information:</strong> Collected and processed by our third-party payment processor (Paddle)</li>
@@ -218,7 +218,7 @@ const Legal = () => {
               <li><strong>Uploaded Data:</strong> Files and content directly uploaded by users for service delivery</li>
             </ul>
             <p className="text-[#2F2F2F] mt-3">
-              PivotReady does not process or collect sensitive data such as health information or ethnic details.
+              TEN ELEVEN TWELVE LLC does not process or collect sensitive data such as health information or ethnic details.
             </p>
           </section>
 
@@ -235,9 +235,9 @@ const Legal = () => {
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">3. Purpose of Data Collection</h3>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
-              <li>To provide PivotReady's services, including ChatBOT functionality and document creation</li>
-              <li>To process payments and manage PivotReady subscriptions</li>
-              <li>To improve and optimize PivotReady's website and tools</li>
+              <li>To provide TEN ELEVEN TWELVE LLC's services, including ChatBOT functionality and document creation</li>
+              <li>To process payments and manage TEN ELEVEN TWELVE LLC subscriptions</li>
+              <li>To improve and optimize TEN ELEVEN TWELVE LLC's website and tools</li>
               <li>For marketing purposes (with your consent)</li>
               <li>To comply with legal obligations</li>
             </ul>
@@ -253,13 +253,13 @@ const Legal = () => {
 
           <section className="space-y-4">
             <h3 className="text-xl font-semibold text-[#4A7C74]">4. Data Sharing</h3>
-            <p className="text-[#2F2F2F] mb-3">PivotReady shares data with the following third parties:</p>
+            <p className="text-[#2F2F2F] mb-3">TEN ELEVEN TWELVE LLC shares data with the following third parties:</p>
             <ul className="list-disc list-inside text-[#2F2F2F] space-y-1 ml-4">
               <li><strong>Paddle:</strong> For payment processing</li>
-              <li><strong>OpenAI and Anthropic:</strong> To power PivotReady's ChatBOT features and training</li>
+              <li><strong>OpenAI and Anthropic:</strong> To power TEN ELEVEN TWELVE LLC's ChatBOT features and training</li>
             </ul>
             <p className="text-[#2F2F2F] mt-3">
-              PivotReady does not transfer personal data internationally or share it for external purposes. 
+              TEN ELEVEN TWELVE LLC does not transfer personal data internationally or share it for external purposes. 
               However, users may access their own data from any location.
             </p>
           </section>
@@ -341,7 +341,7 @@ const Legal = () => {
         <div className="space-y-6">
           <div className="bg-[#EDF6F9] p-4 rounded-lg border-l-4 border-[#4A7C74]">
             <p className="text-sm text-[#2F2F2F]">
-              This Cookie Policy explains how PivotReady uses cookies and similar technologies on our website.
+              This Cookie Policy explains how TEN ELEVEN TWELVE LLC uses cookies and similar technologies on our website.
             </p>
           </div>
 
