@@ -65,6 +65,26 @@ const ProductsSection = () => {
                   <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Project Profitability</span>
                   <span className="bg-[#4A7C74] bg-opacity-10 text-[#4A7C74] px-3 py-1 rounded-full text-sm">Competitive Intelligence</span>
                 </div>
+                
+                {/* Pricing Tiers */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-[#4A7C74] mb-3">Pricing Plans</h4>
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-white border border-gray-200 rounded-lg p-3 text-center">
+                      <div className="font-semibold text-[#4A7C74]">Free</div>
+                      <div className="text-xl font-bold text-[#2F2F2F]">$0</div>
+                    </div>
+                    <div className="bg-white border border-[#4A7C74] rounded-lg p-3 text-center ring-2 ring-[#4A7C74] ring-opacity-30">
+                      <div className="font-semibold text-[#4A7C74]">Plus</div>
+                      <div className="text-xl font-bold text-[#2F2F2F]">$9.99</div>
+                    </div>
+                    <div className="bg-white border border-gray-200 rounded-lg p-3 text-center">
+                      <div className="font-semibold text-[#4A7C74]">Pro</div>
+                      <div className="text-xl font-bold text-[#2F2F2F]">$19.99</div>
+                    </div>
+                  </div>
+                </div>
+                
                 <Button variant="secondary" className="bg-gray-300 text-gray-600 cursor-not-allowed font-montserrat font-semibold" disabled>
                   Join Waitlist <Bell className="ml-2 h-4 w-4" />
                 </Button>
